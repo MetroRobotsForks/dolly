@@ -19,10 +19,11 @@ set(target "dolly_follow")
 
 add_executable(${target} src/${target}.cpp)
 
-ament_target_dependencies(${target}
+target_link_libraries(${target} PUBLIC
   "rclcpp"
   "geometry_msgs"
-  "sensor_msgs")
+  "sensor_msgs"
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
