@@ -20,9 +20,10 @@ set(target "dolly_follow")
 add_executable(${target} src/${target}.cpp)
 
 target_link_libraries(${target} PUBLIC
-  "rclcpp"
-  "geometry_msgs"
-  "sensor_msgs"
+  ${geometry_msgs_TARGETS}
+  ${sensor_msgs_TARGETS}
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs_library
 )
 
 if(BUILD_TESTING)
